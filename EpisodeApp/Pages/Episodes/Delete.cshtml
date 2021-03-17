@@ -1,0 +1,46 @@
+﻿@page
+@model EpisodeApp.Pages.Episodes.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Episode</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.GuestName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.GuestName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.URL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.URL)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Episode.EpisodeId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+﻿@page
+@model EpisodeApp.Pages.Episodes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Episode[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Episode[0].GuestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Episode[0].Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Episode)
+        {
+            <tr>
+                <td>
+                    <a href=@Html.DisplayFor(modelItem => item.URL) target="_blank">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuestName)
+                </td>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.EpisodeId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.EpisodeId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.EpisodeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

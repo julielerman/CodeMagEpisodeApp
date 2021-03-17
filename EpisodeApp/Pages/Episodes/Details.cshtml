@@ -1,0 +1,43 @@
+﻿@page
+@model EpisodeApp.Pages.Episodes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Episode</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.GuestName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.GuestName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Episode.URL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Episode.URL)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Episode.EpisodeId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
