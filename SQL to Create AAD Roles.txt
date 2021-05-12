@@ -1,0 +1,9 @@
+ Connect to the DB you need to update
+- Execute the following commands:
+
+CREATE USER [julia@thedatafarm.com] FROM EXTERNAL PROVIDER
+
+// choose the appropriate role for your needs
+ALTER ROLE db_datareader ADD MEMBER [julia@thedatafarm.com];
+ALTER ROLE db_datawriter ADD MEMBER [julia@thedatafarm.com];
+ALTER ROLE db_ddladmin ADD MEMBER [julia@thedatafarm.com];
