@@ -16,15 +16,18 @@ namespace EpisodeApp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((context, config) =>
-             {
-               var builtConfig = config.Build();
-               config.AddAzureKeyVault(
-                 new Uri("https://lermancodemagvault.vault.azure.net"),
-                 new DefaultAzureCredential());
-             })
+            {
+                if (context.HostingEnvironment.IsProduction())
+                {
+                   var builtConfig = config.Build();
+                    config.AddAzureKeyVault(
+                      new Uri("https://lermancodemagvault.vault.azure.net"),
+                      new DefaultAzureCredential());
+                }
+            })
             .ConfigureWebHostDefaults(webBuilder =>
              {
-               webBuilder.UseStartup<Startup>();
+                 webBuilder.UseStartup<Startup>();
              });
     }
 }
